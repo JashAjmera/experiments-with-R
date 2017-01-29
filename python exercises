@@ -1,0 +1,27 @@
+//question 1.
+
+import datetime
+name = input("What is your name:")
+print("your name is " + name)
+age = int(input('What is your age'))
+future_age_year = 100 - age
+now = datetime.datetime.now()
+final_year = now.year + future_age_year
+print("Your name is "+name+"and you will be hundred years in "+final_year)
+
+//question 2
+
+number = int(raw_input("Enter a number:\n"))
+if number%2 == 0 and number%4 == 0 :
+    print("number is multiple of 4")
+elif number%2 == 0:
+    print("number is even")
+else:
+    print("Number is odd")
+    
+    
+    
+//question 3
+
+
+  
