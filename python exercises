@@ -99,4 +99,19 @@ else:
 
 //question 9
   
- 
+import random
+def abc():
+  a = random.randint(1,1000)
+  print(a)
+  b = int(input("Enter a number:"))
+  print(b)
+  if b < a:
+    print("Number is too low")
+  elif b >a :
+    print("Number is too high")
+  else :
+    print("You got it right!")
+
+abc()
+
+// question 10
