@@ -52,3 +52,51 @@ for element in a:
     c.append(element)
 print(c)
   
+//question 6
+
+word = str(input("Enter a word: \n"))
+if word[0:] == word[::-1]:
+  print("palindrone")
+else:
+  print("NAH")
+  
+//question 7
+
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+b = [number for number in a if number % 2 == 0]
+
+print(b)
+
+//question 8
+
+def rps():
+  player1 = str(input("What do you choose player1?")) 
+  player2 = str(input("What do you choose player2?"))
+  if player1 == 'rock' and player2 == 'paper':
+    print("player2 wins")
+  elif player1 == 'paper' and player2 == 'scissors':
+    print("player2  wins")
+  elif player1 == 'rock' and player2 == 'scissors':
+    print("player1 wins")
+  elif player1 == 'scissors' and player2 == 'rock':
+    print("player2 wins")
+  elif player1 == 'scissors' and player2 == 'paper':
+    print("player1 wins")
+  elif player1 == 'paper' and player2 == 'rock':
+    print("player1 wins")
+  elif player1 == player2:
+    print("Draw")
+  else:
+    print("You have not entered correct inputs")
+
+rps()
+
+game2 = int(input("New game?"))
+if game2 == 1:
+  rps()
+else:
+  print("bye")
+
+//question 9
+  
+ 
