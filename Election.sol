@@ -4,29 +4,29 @@ contract Election {
     
     struct Candidate {
         string name;
-        uint votecount;
+        uint voteCount;
     }
     
     struct Voter {
         bool voted;
-        uint voteindex;
+        uint voteIndex;
         uint weight;
     }
     
     address public owner;
     string public name;
-    mapping (address => Voter) public voters;
+    mapping(address => Voter) public voters;
     Candidate [] public candidates;
-    uint public auctionend;
+    uint public auctionEnd;
     
     
-    event ElectionResult(string name, uint votecount);
+    event ElectionResult(string name, uint voteCount);
     
     
-    function Election(string _name, uint durationminutes, string candidate1, string candidate2) {
+    function Election(string _name, uint durationMinutes, string candidate1, string candidate2){
         name = _name;
         owner = msg.sender;
-        auctionend = now + (durationminutes * 1 minutes);
+        auctionEnd = now + (durationMinutes * 1 minutes);
         candidates.push(Candidate(candidate1,0));
         candidates.push(Candidate(candidate2,0));
     }
@@ -39,23 +39,24 @@ contract Election {
     }
 
 
-    function vote(uint voteindex){
-        require(now < auctionend);
+    function vote(uint voteIndex){
+        require(now < auctionEnd);
         require(!voters[msg.sender].voted);
 
         voters[msg.sender].voted = true;
-        voters[msg.sender].voteindex = voteindex;
+        voters[msg.sender].voteIndex = voteIndex;
         
-        candidates[voteindex].votecount += voters[msg.sender].weight;
+        candidates[voteIndex].voteCount += voters[msg.sender].weight;
     }
     
     
     function end() {
         require(msg.sender == owner);
-        require(now > auctionend);
+        require(now >= auctionEnd);
         
         for(uint i=0;i<candidates.length;i++){
-            ElectionResult(candidates[i].name,candidates[i].votecount);
+            ElectionResult(candidates[i].name,candidates[i].voteCount);
         }
     }
 }
+
